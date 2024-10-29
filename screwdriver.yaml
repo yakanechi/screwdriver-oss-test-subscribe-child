@@ -1,0 +1,10 @@
+subscribe:
+  scmUrls:
+    - git@github.com:yakanechi/screwdriver-oss-test-subscribe-root.git: ['~commit']
+
+jobs:
+  main:
+    image: node:20
+    requires: [~pr, ~commit, ~subscribe]
+    steps:
+      - test: echo 'test'
